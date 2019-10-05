@@ -91,8 +91,9 @@ export default {
         password: this.password
       })
         .then(response => {
+          console.log(response.data)
           // save token in localstorage
-          localStorage.setItem('tweetr-token', response.data.token)
+          localStorage.setItem('tweetr-token', response.data.data.token)
 
           // redirect to user home
           this.$router.push('/')
