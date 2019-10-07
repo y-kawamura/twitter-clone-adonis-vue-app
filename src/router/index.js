@@ -5,6 +5,7 @@ import LogInForm from '@/components/Auth/LogInForm'
 import UserProfileSettings from '@/components/User/Settings/UserProfileSettings'
 import UserPasswordSettings from '@/components/User/Settings/UserPasswordSettings'
 import Home from '@/components/Home'
+import SingleTweet from '@/components/Tweet/SingleTweet'
 
 Vue.use(Router)
 
@@ -29,6 +30,11 @@ export default new Router({
     {
       path: '/',
       component: Home
+    },
+    {
+      path: '/:username/status/:id',
+      component: SingleTweet,
+      props: true
     }
   ]
 })
