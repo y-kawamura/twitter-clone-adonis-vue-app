@@ -1,7 +1,7 @@
 <template>
   <div>
     <div class="ui attached segment">
-      <form class="ui form">
+      <form class="ui form" @submit.prevent="postTweet">
         <div class="field">
           <textarea name="tweet" rows="2" v-model="tweet" placeholder="Compose tweet"></textarea>
         </div>
@@ -21,6 +21,8 @@
 </template>
 
 <script>
+import EventBus from '@/eventBus'
+import axios from 'axios'
 export default {
   name: 'UserSidebar',
   props: {
@@ -37,6 +39,29 @@ export default {
   computed: {
     isFormValid () {
       return !!this.tweet
+    }
+  },
+  methods: {
+    postTweet () {
+      const token = localStorage.getItem('tweetr-token')
+
+      axios
+        .post(
+          '/tweet',
+          { tweet: this.tweet },
+          {
+            headers: {
+              Authorization: `Bearer ${token}`
+            }
+          }
+        )
+        .then(response => {
+          // fire an event to the event bus
+          EventBus.$emit('tweetAdded', response.data.data)
+
+          // clear input field
+          this.tweet = ''
+        })
     }
   }
 }

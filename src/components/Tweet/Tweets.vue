@@ -10,6 +10,7 @@
 
 <script>
 import Tweet from '@/components/Tweet/Tweet'
+import EventBus from '@/eventBus'
 
 export default {
   name: 'Tweets',
@@ -24,6 +25,16 @@ export default {
     authUser: {
       type: Object,
       required: true
+    }
+  },
+  created () {
+    // listen for event fired
+    EventBus.$on('tweetAdded', this.fetchAddedTweet)
+  },
+  methods: {
+    fetchAddedTweet (tweet) {
+      // add tweet to top of tweets
+      this.tweets.unshift(tweet)
     }
   }
 }
