@@ -20,6 +20,14 @@
           </div>
         </div>
       </div>
+
+      <TweetReactions
+        :tweet="tweet"
+        :replies="replies"
+        :favorites.sync="tweet.favorites"
+        :authUser="authUser"
+      />
+
       <div class="ui divider"></div>
       <form class="ui form" @submit.prevent="replyTweet">
         <div class="field">
@@ -35,18 +43,21 @@
 
 <script>
 import Replies from '@/components/Tweet/Replies'
+import TweetReactions from '@/components/Tweet/TweetReactions'
 import axios from 'axios'
 
 export default {
   name: 'SingleTweet',
   components: {
-    Replies
+    Replies,
+    TweetReactions
   },
   data () {
     return {
       tweet: '',
       replies: [],
-      reply: ''
+      reply: '',
+      authUser: ''
     }
   },
   computed: {
@@ -56,6 +67,7 @@ export default {
   },
   created () {
     this.fetchTweet()
+    this.fetchAuthenticatedUser()
   },
   methods: {
     fetchTweet () {
@@ -63,6 +75,19 @@ export default {
         .get(`/tweets/${this.$route.params.id}`)
         .then(response => {
           this.tweet = response.data.data
+        })
+    },
+    fetchAuthenticatedUser () {
+      const token = localStorage.getItem('tweetr-token')
+
+      axios
+        .get('/account/me', {
+          headers: {
+            Authorization: `Bearer ${token}`
+          }
+        })
+        .then(response => {
+          this.authUser = response.data.data
         })
     },
     back () {

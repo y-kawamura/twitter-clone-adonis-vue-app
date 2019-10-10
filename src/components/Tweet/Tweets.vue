@@ -4,6 +4,7 @@
       v-for="tweet in tweets"
       :key="tweet.id"
       :tweet="tweet"
+      :authUser="authUser"
     />
   </div>
 </template>
