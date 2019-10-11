@@ -13,12 +13,15 @@
         />
       </div>
     </div>
-    <div class="four wide column"></div>
+    <div class="four wide column">
+      <WhoToFollow/>
+    </div>
   </div>
 </template>
 
 <script>
 import UserSidebar from '@/components/User/UserSidebar'
+import WhoToFollow from '@/components/User/WhoToFollow'
 import Tweets from '@/components/Tweet/Tweets'
 import axios from 'axios'
 
@@ -26,6 +29,7 @@ export default {
   name: 'Home',
   components: {
     UserSidebar,
+    WhoToFollow,
     Tweets
   },
   data () {
