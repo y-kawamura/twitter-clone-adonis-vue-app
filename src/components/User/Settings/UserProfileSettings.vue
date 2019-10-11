@@ -81,7 +81,6 @@ export default {
   methods: {
     fetchAuthenticatedUser () {
       const token = localStorage.getItem('tweetr-token')
-      console.log(token)
       axios
         .get('/account/me', {
           headers: {

@@ -35,6 +35,11 @@ export default new Router({
       path: '/:username/status/:id',
       component: SingleTweet,
       props: true
+    },
+    {
+      path: '/:username',
+      component: UserProfileSettings,
+      props: true
     }
   ]
 })
