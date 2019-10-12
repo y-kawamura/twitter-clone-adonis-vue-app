@@ -35,16 +35,6 @@ export default new Router({
       component: Home
     },
     {
-      path: '/:username/status/:id',
-      component: SingleTweet,
-      props: true
-    },
-    {
-      path: '/:username',
-      component: UserProfile,
-      props: true
-    },
-    {
       path: '/following',
       component: UsersFollowing
     },
@@ -60,6 +50,16 @@ export default new Router({
     {
       path: '/:username/followers',
       component: UserFollowers,
+      props: true
+    },
+    {
+      path: '/:username/status/:id',
+      component: SingleTweet,
+      props: true
+    },
+    {
+      path: '/:username',
+      component: UserProfile,
       props: true
     }
   ]
