@@ -41,8 +41,8 @@ export default {
   },
   data () {
     return {
-      user: '',
-      authUset: '',
+      user: {},
+      authUser: {},
       tweets: []
     }
   },
