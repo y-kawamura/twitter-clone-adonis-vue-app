@@ -27,8 +27,8 @@
 <script>
 import UserProfileHeader from '@/components/User/Profile/UserProfileHeader'
 import UserProfileSidebarDetails from '@/components/User/Profile/UserProfileSidebarDetails'
-import WhoToFollow from '@/components/User/Profile/WhoToFollow'
-import Tweets from '@/components/User/Profile/Tweets'
+import WhoToFollow from '@/components/User/WhoToFollow'
+import Tweets from '@/components/Tweet/Tweets'
 import axios from 'axios'
 
 export default {

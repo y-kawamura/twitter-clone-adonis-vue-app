@@ -6,6 +6,7 @@ import UserProfileSettings from '@/components/User/Settings/UserProfileSettings'
 import UserPasswordSettings from '@/components/User/Settings/UserPasswordSettings'
 import Home from '@/components/Home'
 import SingleTweet from '@/components/Tweet/SingleTweet'
+import UserProfile from '@/components/User/Profile/UserProfile'
 
 Vue.use(Router)
 
@@ -38,7 +39,7 @@ export default new Router({
     },
     {
       path: '/:username',
-      component: UserProfileSettings,
+      component: UserProfile,
       props: true
     }
   ]
