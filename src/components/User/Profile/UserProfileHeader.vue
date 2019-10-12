@@ -67,6 +67,8 @@ export default {
   },
   computed: {
     isOwner () {
+      console.log('isOwner: ')
+      console.log(this.authUser)
       return this.user.id === this.authUser.id
     },
     isLoggedIn () {

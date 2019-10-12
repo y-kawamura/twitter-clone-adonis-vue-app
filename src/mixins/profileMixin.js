@@ -12,7 +12,6 @@ export default {
   },
   methods: {
     $_profileMixin_fetchUser (username) {
-      console.log('_profileMixin_fetchUser')
       if (username) {
         axios.get(`/${username}`).then(response => {
           this.user = response.data.data
