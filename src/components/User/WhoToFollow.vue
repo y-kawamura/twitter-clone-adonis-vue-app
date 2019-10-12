@@ -6,7 +6,7 @@
     <div class="ui divided link items">
       <div class="item" v-for="user in usersToFollow" :key="user.id">
         <div class="ui avatar image">
-          <img src="https://www.gravatar.com/avatar/default?s=200&r=pg&d=mm">
+          <img src="https://www.gravatar.com/avatar/default?s=100&r=pg&d=mm">
         </div>
         <div class="content">
           <router-link class="ui small header" :to="`/${user.username}`">
